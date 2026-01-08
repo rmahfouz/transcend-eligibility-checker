@@ -5,6 +5,7 @@ const App = () => {
     const [answers, setAnswers] = useState({});
     const [status, setStatus] = useState('filling'); // 'filling', 'eligible', 'ineligible'
     const [failedReason, setFailedReason] = useState(null);
+    const [failedQuestionId, setFailedQuestionId] = useState(null);
 
     const criteria = [
         {
@@ -67,6 +68,7 @@ const App = () => {
                     question: item.question,
                     explanation: item.reason
                 });
+                setFailedQuestionId(id);
                 setStatus('ineligible');
                 return;
             }
@@ -79,9 +81,15 @@ const App = () => {
         };
 
     const reset = () => {
-        setAnswers({});
+        // Only remove the answer that caused ineligibility, keep all others
+        if (failedQuestionId) {
+            const newAnswers = { ...answers };
+            delete newAnswers[failedQuestionId];
+            setAnswers(newAnswers);
+        }
         setStatus('filling');
         setFailedReason(null);
+        setFailedQuestionId(null);
     };
 
     return (
