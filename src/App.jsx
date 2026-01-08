@@ -85,10 +85,10 @@ const App = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-100 flex flex-col items-center p-2 sm:p-4 font-sans">
+        <div className="min-h-screen bg-slate-100 flex flex-col items-center p-3 sm:p-5 font-sans">
             <div className="max-w-4xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200">
                 {/* Header */}
-                <div className="bg-slate-900 p-4 text-white relative overflow-hidden">
+                <div className="bg-slate-900 p-5 text-white relative overflow-hidden">
                     <div className="relative z-10">
                         <div className="flex items-center gap-3 mb-2">
                             <ClipboardList className="w-6 h-6 text-blue-400" />
@@ -96,7 +96,7 @@ const App = () => {
                                 NCT06685757</span>
                         </div>
                         <h1 className="text-2xl font-extrabold tracking-tight">TRANSCEND Eligibility</h1>
-                        <p className="text-slate-400 mt-1 text-xs max-w-md">
+                        <p className="text-slate-400 mt-1 text-sm max-w-md">
                             Phase 3 Study of Felzartamab for Kidney Transplant Recipients with Late Antibody-Mediated
                             Rejection (AMR).
                         </p>
@@ -105,7 +105,7 @@ const App = () => {
                     </div>
                 </div>
 
-                <div className="p-3 sm:p-5">
+                <div className="p-4 sm:p-6">
                     {status === 'filling' && (
                         <div className="space-y-3">
                             <div className="flex items-center justify-between border-b border-slate-100 pb-2">
@@ -117,34 +117,34 @@ const App = () => {
                                 </span>
                             </div>
 
-                            <div className="grid gap-2">
+                            <div className="grid gap-2.5">
                                 {criteria.map((item) => (
-                                    <div key={item.id} className={`p-2.5 rounded-xl border transition-all duration-200 ${answers[item.id] !== undefined ? 'bg-slate-50 border-slate-200 shadow-sm'
-                                            : 'bg-white border-slate-100 hover:border-slate-300'}`}>
-                                        <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                                    <div key={item.id} className={`p-3 rounded-xl border transition-all duration-200 ${answers[item.id] !== undefined ? 'bg-slate-50 border-slate-200 shadow-sm'
+                                        : 'bg-white border-slate-100 hover:border-slate-300'}`}>
+                                        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
                                             <div className="flex-1">
                                                 <span className={`text-[9px] font-bold uppercase tracking-tighter px-1.5 py-0.5
                                         rounded mr-2 ${item.category === 'Inclusion' ? 'bg-blue-100 text-blue-700'
                                                         : 'bg-orange-100 text-orange-700'}`}>
                                                     {item.category}
                                                 </span>
-                                                <p className="text-slate-700 text-sm font-medium leading-tight">{item.question}</p>
+                                                <p className="text-slate-700 text-sm font-medium leading-snug">{item.question}</p>
                                             </div>
 
                                             <div
                                                 className="flex bg-white p-0.5 rounded-lg border border-slate-200 shadow-inner w-fit">
                                                 <button onClick={() => handleToggle(item.id, true)}
-                                                    className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${answers[item.id] === true
-                                                            ? 'bg-slate-900 text-white shadow-lg'
-                                                            : 'text-slate-400 hover:text-slate-600'
+                                                    className={`px-5 py-1.5 rounded-md text-sm font-bold transition-all ${answers[item.id] === true
+                                                        ? 'bg-slate-900 text-white shadow-lg'
+                                                        : 'text-slate-400 hover:text-slate-600'
                                                         }`}
                                                 >
                                                     Yes
                                                 </button>
                                                 <button onClick={() => handleToggle(item.id, false)}
-                                                    className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${answers[item.id] === false
-                                                            ? 'bg-slate-900 text-white shadow-lg'
-                                                            : 'text-slate-400 hover:text-slate-600'
+                                                    className={`px-5 py-1.5 rounded-md text-sm font-bold transition-all ${answers[item.id] === false
+                                                        ? 'bg-slate-900 text-white shadow-lg'
+                                                        : 'text-slate-400 hover:text-slate-600'
                                                         }`}
                                                 >
                                                     No
